@@ -1,0 +1,13 @@
+.mdl-card {
+	float:left;
+	margin-right:2em;
+}
+
+.mdl-textfield {
+	max-width:3em;
+}
+
+.mdl-card__supporting-text.mdl-card--border {
+	border-bottom: 0px solid;
+	border-top: 1px solid rgba(0,0,0,.1);
+}
