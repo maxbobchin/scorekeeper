@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Game } from '../game';
+import { Component, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-game-details',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./game-details.component.css']
 })
 export class GameDetailsComponent implements OnInit {
-
-  constructor() { }
-
+  @Output() game: Game;
+  constructor(private router: Router) { }
+  continueToGame() {
+    this.router.navigate(['/game']);
+  }
   ngOnInit() {
+    this.game = new Game();
   }
 
 }

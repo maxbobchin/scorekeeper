@@ -1,17 +1,21 @@
 import {Player} from './player';
 export class Game {
   id: number;
-  name = 'the game name!';
+  name: string;
   players: Player[] = [];
-  constructor() {
-    const player1 = new Player();
-    const player2 = new Player();
-    player1.id = 1;
-    player1.name = 'player one';
-    player2.id = 2;
-    player2.name = 'player two';
-    this.players.push(player1);
-    this.players.push(player2);
+  constructor(name?: string) {
+      if (name === undefined) {
+        name = 'My Game';
+      }
+      this.name = name;
+//    const player1 = new Player();
+//    const player2 = new Player();
+//    player1.id = 1;
+//    player1.name = 'player one';
+//    player2.id = 2;
+//    player2.name = 'player two';
+//    this.players.push(player1);
+//    this.players.push(player2);
   }
 
   addPlayer(player: Player): void {

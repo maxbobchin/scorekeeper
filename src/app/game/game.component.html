@@ -1,11 +1,13 @@
 <div>
 	<h2>{{game.name}}</h2>
-	<div *ngIf="game.players">
+	<div *ngIf="game.players.length">
 		<div *ngFor="let player of game.players" >
-			<app-players-scores [player]="player"></app-players-scores>
+			<app-players-scores (addNewPlayer)="addNewPlayer($event)" (deletePlayer)="deletePlayer($event)" [player]="player"></app-players-scores>
 		</div>
 	</div>
-	<div *ngIf="!game.players">
+	<div *ngIf="!game.players.length">
+		{{game.players}}
 		<h2>No Players</h2>
+		<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored" (click)="addNewPlayer($event)"><i class="material-icons">add</i></button>
 	</div>
 </div>
