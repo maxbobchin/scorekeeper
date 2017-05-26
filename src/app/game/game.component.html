@@ -4,7 +4,7 @@
 		<div class="mdl-cell mdl-cell--2-col"></div>
 		<div class="mdl-cell mdl-cell--8-col" >
 			<div *ngFor="let player of game.players" >
-				<app-players-scores [player]="player"></app-players-scores>
+				<app-players-scores (addNewPlayer)="addNewPlayer($event)" (deletePlayer)="deletePlayer($event)" [player]="player"></app-players-scores>
 			</div>
 		</div>
 		<div class="mdl-cell mdl-cell--2-col"></div>

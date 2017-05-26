@@ -1,6 +1,6 @@
 import { Player } from '../player';
 import { Score } from '../score';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-players-scores',
@@ -11,6 +11,9 @@ export class PlayersScoresComponent implements OnInit {
   @Input() player: Player;
   nextScore = 0;
   total = 0;
+  bEdit = false;
+  @Output() addNewPlayer: EventEmitter<string> = new EventEmitter();
+  @Output() deletePlayer: EventEmitter<string> = new EventEmitter();
   constructor() { }
   addScore(): void {
     this.player.scores.push(new Score(this.nextScore));
@@ -26,5 +29,20 @@ export class PlayersScoresComponent implements OnInit {
   ngOnInit() {
     this.calculateTotal();
   }
-
+  addPlayer(): void {
+    console.log("addPlayer");
+    this.addNewPlayer.emit('addnewplayer');
+  }
+  removePlayer(): void {
+    console.log("removePlayer");
+    this.deletePlayer.emit('' + this.player.id);
+  }
+  editPlayer(): void {
+    console.log("editPlayer");
+    this.bEdit = true;
+  }
+  savePlayer(): void {
+    console.log("savePlayer");
+    this.bEdit = false;
+   }
 }

@@ -9,9 +9,9 @@
 		</button>
 	
 		<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" [attr.for]="testing.id">
-		  <li class="mdl-menu__item">Add New Player</li>
-		  <li class="mdl-menu__item">Remove This Player</li>
-		  <li class="mdl-menu__item">Edit This Player</li>
+		  <li class="mdl-menu__item" (click)="addPlayer()">Add New Player</li>
+		  <li class="mdl-menu__item" (click)="removePlayer()">Remove This Player</li>
+		  <li class="mdl-menu__item" (click)="editPlayer()">Edit This Player</li>
 		</ul>	
 	</div>	
 	<div class="mdl-card__actions">
