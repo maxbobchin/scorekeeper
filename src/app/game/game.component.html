@@ -1,12 +1,11 @@
 <div>
 	<h2>{{game.name}}</h2>
-	<div class="mdl-grid" *ngIf="game">
-		<div class="mdl-cell mdl-cell--2-col"></div>
-		<div class="mdl-cell mdl-cell--8-col" >
-			<div *ngFor="let player of game.players" >
-				<app-players-scores [player]="player"></app-players-scores>
-			</div>
+	<div *ngIf="game.players">
+		<div *ngFor="let player of game.players" >
+			<app-players-scores [player]="player"></app-players-scores>
 		</div>
-		<div class="mdl-cell mdl-cell--2-col"></div>
-	 </div>
+	</div>
+	<div *ngIf="!game.players">
+		<h2>No Players</h2>
+	</div>
 </div>
